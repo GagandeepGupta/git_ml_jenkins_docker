@@ -64,8 +64,8 @@ print(model.summary())
 
 from keras.preprocessing.image import ImageDataGenerator
 
-train_data_dir = 'C://Users//GD GUPTA//Desktop//ml-ops//task3 using imagenet//training'
-validation_data_dir = 'C://Users//GD GUPTA//Desktop//ml-ops//task3 using imagenet//testing'
+train_data_dir = 'training/'
+validation_data_dir = 'testing/'
 
 # Let's use some data augmentaiton 
 train_datagen = ImageDataGenerator(
@@ -107,7 +107,7 @@ from keras.optimizers import RMSprop
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 
 for i in range(1,3):                     
-    checkpoint = ModelCheckpoint("face1.h5",
+    checkpoint = ModelCheckpoint("face2.h5",
                              monitor="val_loss",
                              mode="min",
                              save_best_only = True,
@@ -149,10 +149,10 @@ history = model.fit_generator(
 
 from keras.models import load_model
 
-classifier = load_model('face1.h5')
+classifier = load_model('face2.h5')
 
 
-# In[10]:
+# In[7]:
 
 
 import os
@@ -163,10 +163,12 @@ from os.path import isfile, join
 
 monkey_breeds_dict = {"[0]": "gagan", 
                       "[1]": "arpit",
+                      
                       }
 
 monkey_breeds_dict_n = {"hey1": "gagan", 
                       "hey2": "arpit",
+                        
                       }
 
 def draw_test(name, pred, im):
@@ -205,6 +207,12 @@ for i in range(0,10):
     cv2.waitKey(0)
 
 cv2.destroyAllWindows()
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
